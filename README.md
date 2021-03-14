@@ -1,3 +1,0 @@
-# jitsi
-# jitsi
-# jitsi-demo
