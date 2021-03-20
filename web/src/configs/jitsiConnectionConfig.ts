@@ -54,7 +54,7 @@ const jitsiConfiguration = {
     },
     transcribingEnabled: false,
     useIPv6: true,
-    websocket: "wss://13.52.206.105:8443/xmpp-websocket",
+    websocket: "wss://13.52.206.105/xmpp-websocket",
 };
 
 export {
