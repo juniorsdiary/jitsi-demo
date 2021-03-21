@@ -65,6 +65,7 @@ class JitsiController {
         serviceUrl += `?room=${roomName}`;
 
         connectionConfig.serviceUrl = connectionConfig.bosh = serviceUrl;
+        console.log(connectionConfig.serviceUrl);
         this.jitsiConnection = new JitsiMeet.JitsiConnection(null, null, connectionConfig);
 
         this.jitsiConnection.addEventListener(
