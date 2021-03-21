@@ -114,7 +114,9 @@ class JitsiController {
         for (let i = 0; i < tracks.length; i++) {
             tracks[i].addEventListener(
                 JitsiMeet.events.track.TRACK_AUDIO_LEVEL_CHANGED,
-                audioLevel => console.log(`Audio Level local: ${audioLevel}`));
+                audioLevel => {
+                    // console.log(`Audio Level local: ${audioLevel}`)
+                });
 
             tracks[i].addEventListener(
                 JitsiMeet.events.track.TRACK_MUTE_CHANGED,
@@ -145,19 +147,20 @@ class JitsiController {
                     this.remoteTracks[participant] = [track];
                     this.onRemoteTrack(track);
                 }
+                track.addEventListener(
+                    JitsiMeet.events.track.TRACK_AUDIO_LEVEL_CHANGED,
+                    audioLevel => {
+                        // console.log(`Audio Level remote: ${audioLevel}`)
+                    });
+
+                track.addEventListener(
+                    JitsiMeet.events.track.TRACK_MUTE_CHANGED,
+                    () => console.log('remote track muted'));
+
+                track.addEventListener(
+                    JitsiMeet.events.track.LOCAL_TRACK_STOPPED,
+                    () => console.log('remote track stopped'));
             }
-
-            track.addEventListener(
-                JitsiMeet.events.track.TRACK_AUDIO_LEVEL_CHANGED,
-                audioLevel => console.log(`Audio Level remote: ${audioLevel}`));
-
-            track.addEventListener(
-                JitsiMeet.events.track.TRACK_MUTE_CHANGED,
-                () => console.log('remote track muted'));
-
-            track.addEventListener(
-                JitsiMeet.events.track.LOCAL_TRACK_STOPPED,
-                () => console.log('remote track stopped'));
         });
 
         this.room.on(JitsiMeet.events.conference.TRACK_REMOVED, track => {
@@ -196,7 +199,9 @@ class JitsiController {
 
         this.room.on(
             JitsiMeet.events.conference.TRACK_AUDIO_LEVEL_CHANGED,
-            (userID, audioLevel) => console.log(`${userID} - ${audioLevel}`));
+            (userID, audioLevel) => {
+                // console.log(`${userID} - ${audioLevel}`)
+            });
 
         this.room.join();
     }
