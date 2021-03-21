@@ -17,8 +17,8 @@ COPY --from=build /usr/share/web/build /usr/share/web/build
 RUN rm -f /etc/nginx/nginx.conf
 RUN rm -f /etc/nginx/conf.d/default.conf
 
-COPY /etc/letsencrypt/live/jitsi.helloeva.net/fullchain.pem ./nginx/localhost.crt
-COPY /etc/letsencrypt/live/jitsi.helloeva.net/privkey.pem ./nginx/localhost.key
+#COPY /etc/letsencrypt/live/jitsi.helloeva.net/fullchain.pem ./nginx/localhost.crt
+#COPY /etc/letsencrypt/live/jitsi.helloeva.net/privkey.pem ./nginx/localhost.key
 
 COPY ./nginx/ /etc/nginx/
 
