@@ -88,11 +88,11 @@ function App() {
 
   return (
     <div>
-        {usersData.map(user =>  (
-            <>
-                <UserVideo key={`${user.userId}_video`} track={user.videoTrack} />
-                <UserAudio key={`${user.userId}_audio`} track={user.audioTrack} />
-            </>
+        {usersData.map(user => (
+            <div key={user.userId}>
+                <UserVideo track={user.videoTrack} />
+                <UserAudio track={user.audioTrack} />
+            </div>
         ))}
     </div>
   );

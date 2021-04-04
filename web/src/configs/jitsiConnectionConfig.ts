@@ -32,7 +32,7 @@ const jitsiConfiguration = {
     },
     makeJsonParserHappy: "even if last key had a trailing comma",
     p2p: {
-        enabled: true,
+        enabled: false,
         stunServers: [
             { urls: "stun:meet-jit-si-turnrelay.jitsi.net:443" }
         ]
@@ -54,7 +54,7 @@ const jitsiConfiguration = {
     },
     transcribingEnabled: false,
     useIPv6: true,
-    websocket: "wss://jitsi.helloeva.net/xmpp-websocket",
+    websocket: "wss://localhost:8443/xmpp-websocket",
 };
 
 export {

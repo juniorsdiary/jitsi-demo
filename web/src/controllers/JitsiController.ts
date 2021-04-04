@@ -60,11 +60,12 @@ class JitsiController {
 
         const connectionConfig = { ...jitsiConfiguration };
 
-        let serviceUrl = connectionConfig.websocket || connectionConfig.bosh;
+        let serviceUrl = connectionConfig.websocket;
 
         serviceUrl += `?room=${roomName}`;
 
-        connectionConfig.serviceUrl = connectionConfig.bosh = serviceUrl;
+        connectionConfig.serviceUrl = serviceUrl;
+
         console.log(connectionConfig.serviceUrl);
         this.jitsiConnection = new JitsiMeet.JitsiConnection(null, null, connectionConfig);
 

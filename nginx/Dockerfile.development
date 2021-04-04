@@ -1,0 +1,10 @@
+FROM nginx:1.15.1
+
+RUN apt-get update && apt-get install -y apt-transport-https apt-utils ca-certificates gnupg
+
+RUN rm -f /etc/nginx/nginx.conf
+RUN rm -f /etc/nginx/conf.d/default.conf
+
+COPY ./config/ /etc/nginx/
+
+RUN cp /etc/nginx/nginx.local.conf /etc/nginx/nginx.conf
