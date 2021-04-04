@@ -7,8 +7,6 @@ services:
       context: ./nginx
       dockerfile: Dockerfile.development
     restart: ${RESTART_POLICY}
-    volumes:
-      - ./web:/usr/share/web
     ports:
       - 8080:80
       - 8443:443
@@ -22,8 +20,6 @@ services:
     restart: ${RESTART_POLICY}
     ports:
       - 3000:3000
-    volumes:
-      - ./web:/usr/share/web
     environment:
       - PUBLIC_URL
       - TZ

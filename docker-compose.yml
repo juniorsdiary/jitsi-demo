@@ -4,8 +4,6 @@ services:
     nginx:
         build: ./nginx
         restart: ${RESTART_POLICY}
-        volumes:
-            - ./web:/usr/share/web
         ports:
             - 8080:80
             - 8443:443
@@ -18,8 +16,6 @@ services:
         build: ./web
         ports:
             - 3000:3000
-        volumes:
-            - ./web:/usr/share/web
         environment:
             - PUBLIC_URL
             - TZ
